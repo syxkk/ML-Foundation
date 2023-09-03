@@ -48,7 +48,7 @@ $\mbox{当 }{\frac{\partial{L}}{\partial{w_0}}=0 \mbox{时，w不再更新，导
 
   ${b_1}={b_0}-\eta\frac{\partial{L}}{\partial{w}}|_{w={w_0},b={b_0}}$  
   updata b w inter
-  - 考虑sigmoid拟合曲线  
+ - 考虑sigmoid拟合曲线  
     $\theta=flatten(all parameter)$
     **$\theta$**
     |$\theta_1$|
@@ -57,13 +57,25 @@ $\mbox{当 }{\frac{\partial{L}}{\partial{w_0}}=0 \mbox{时，w不再更新，导
     |...|
     |$\theta_n$|
     
-    $\mbox{random pick}\ \theta^0$
-    
-    $\frac{\partial{L}}{\partial\theta_1}|_{\theta=\theta^0}$
+    $\mbox{random pick}\ \theta^0$  
+    **$g\ \mbox{gradient} g=\nabla{L}({\theta^0}) $**  (这里github我还不知道为啥把梯度分量写进一个列向量里面就会报错 但是在stackedit里面就可以正常显示)  
+    $\frac{\partial{L}}{\partial\theta_1}|_{\theta=\theta^0}$  
 
-    **$g=[\frac{\partial{L}}{\partial\theta_1}|_{\theta=\theta^0},\frac{\partial{L}}{\partial\theta_2}|_{\theta=\theta^0}]$**  
+    $\frac{\partial{L}}{\partial\theta_2}|_{\theta=\theta^0}$  
     
-
-    
-     
+    $\frac{\partial{L}}{\partial\theta_n}|_{\theta=\theta^0}$  
+   $\theta^1=\theta^0-\eta{g}$
+    (常用的更新参数方法 并不是把所有样本计算出总的Loss 而是一个batch)  
+   |$L^1$|batch|
+   |-|-|
+   |$L^2$|batch|
+   |$L^3$|batch|
+   |...|...|
+   
+   randomly pick $\theta^0$  
+   compute gradient $g^1=\nabla{L^1({\theta^0})}$  
+   **update** $\theta^1=\theta^0-\eta{g^1}$  
+   compute gradient $g^2=\nabla{L^2({\theta^1})}$  
+   **update** $\theta^2=\theta^1-\eta{g^2}$   
+    1 **epoch**=see all the batches once
 
