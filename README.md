@@ -30,7 +30,9 @@ $$y=b+\sum_{i}{c_i}Sigmoid({b_i}+{w_i}{x_1})$$
   ## **$$r=b+wx$$**
   $a_1=c_1sigmiod(r_1)$  
   $a=[a_1,a_2,a_3]^T$  
-  $y=b+a_1+a_2+a_3$  
+  $y=b+a_1+a_2+a_3$
+  ### Relu
+  $y=b+\sum_{2i}c_imax(0,b_i+\sum_{j}w_{ij}x_j)$
 ## Loss
 ${y_i}\mbox{ 表示真实值},\hat{y_i}\mbox{ 表示预测值}$  
 ${e_i}=\left|{y_i}-\hat{y_i}\right|\ L \mbox{ 是 mean absolute erro(MAE)}$
@@ -41,7 +43,7 @@ $$Loss: L=\frac{1}{N}\left|\sum_{i=1}^{n} e_i\right|$$
 ## Optimization
 梯度下降  
 - 考虑一个parameter w
-${w_0}\ \mbox{是随机的, }\eta\mbox{ 是learning rate, }{w_1}={w_0}-\eta\frac{\partial{L}}{\partial{W}}$  
+${w_0}\ \mbox{是随机的, }\eta\mbox{ 是learning rate,是一个hyper peremeter }{w_1}={w_0}-\eta\frac{\partial{L}}{\partial{W}}$  
 $\mbox{当 }{\frac{\partial{L}}{\partial{w_0}}=0 \mbox{时，w不再更新，导致了local min 而不是 global min}}$  
 - 考虑两个parameter  
   ${w_1}={w_0}-\eta\frac{\partial{L}}{\partial{w}}|_{w={w_0},b={b_0}}$  
@@ -79,3 +81,4 @@ $\mbox{当 }{\frac{\partial{L}}{\partial{w_0}}=0 \mbox{时，w不再更新，导
    **update** $\theta^2=\theta^1-\eta{g^2}$   
     1 **epoch**=see all the batches once
 
+### overfitting good at training,but worse at unseen data
